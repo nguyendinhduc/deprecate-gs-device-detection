@@ -8,6 +8,10 @@ Thumbs.db
 bin
 target
 
+# Gradle Files #
+
+.gradle
+
 # Eclipse Project Files #
 
 .classpath
