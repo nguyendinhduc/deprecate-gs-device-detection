@@ -26,15 +26,15 @@ public class HelloWorldController {
 
 	@RequestMapping("/")
 	public @ResponseBody String home(Device device) {
-		String browser = "unknown";
+		String deviceType = "unknown";
 		if (device.isNormal()) {
-			browser = "normal";
+			deviceType = "normal";
 		} else if (device.isMobile()) {
-			browser = "mobile";
+			deviceType = "mobile";
 		} else if (device.isTablet()) {
-			browser = "tablet";
+			deviceType = "tablet";
 		}
-		return "Hello " + browser + " browser!";
+		return "Hello " + deviceType + " browser!";
 	}
 
 }
