@@ -1,4 +1,4 @@
-# Getting Started: Device Detection on the Web
+# Getting Started: Device Detection in Web Applications
 
 This Getting Started guide will walk you through the process of detecting the type of device accessing your web site using Spring.
 
