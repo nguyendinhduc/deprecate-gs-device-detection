@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'jetty'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'idea'
+
+repositories {
+	maven { url 'http://repo.springsource.org/milestone' }
+	mavenCentral();
+}
+
+dependencies {
+	compile "org.springframework:spring-webmvc:3.2.2.RELEASE"
+	compile "org.springframework.mobile:spring-mobile-device:1.1.0.M3"
+	providedCompile "javax.servlet:javax.servlet-api:3.0.1"
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '1.5'
+}
