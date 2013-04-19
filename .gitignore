@@ -2,26 +2,3 @@
 
 *.DS_Store
 Thumbs.db
-
-# Build Files #
-
-build
-target
-bin
-
-# Gradle Files #
-
-.gradle
-
-# Eclipse Project Files #
-
-.classpath
-.project
-.settings
-
-# IntelliJ IDEA Files #
-
-*.iml
-*.ipr
-*.iws
-*.idea
