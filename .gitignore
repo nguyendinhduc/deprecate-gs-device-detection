@@ -5,8 +5,9 @@ Thumbs.db
 
 # Build Files #
 
-bin
+build
 target
+bin
 
 # Gradle Files #
 
