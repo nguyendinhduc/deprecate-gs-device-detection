@@ -3,23 +3,23 @@
 *.DS_Store
 Thumbs.db
 
-# Build Artifacts #
+# Build Artifacts
 
-build
-target
-bin
+build/
+target/
+bin/
 
-# Gradle Files #
+# Gradle Files
 
-.gradle
+.gradle/
 
-# Eclipse Project Files #
+# Eclipse Project Files
 
 .classpath
 .project
-.settings
+.settings/
 
-# IntelliJ IDEA Files #
+# IntelliJ IDEA Files
 
 *.iml
 *.ipr
