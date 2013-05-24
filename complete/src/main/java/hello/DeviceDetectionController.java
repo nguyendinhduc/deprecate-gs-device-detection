@@ -16,23 +16,25 @@
 
 package hello;
 
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.springframework.mobile.device.Device;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-public class HelloWorldWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+@Controller
+public class DeviceDetectionController {
 
-	@Override
-	protected Class<?>[] getRootConfigClasses() {
-		return null;
-	}
-
-	@Override
-	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] { HelloWorldConfiguration.class };
-	}
-
-	@Override
-	protected String[] getServletMappings() {
-		return new String[] { "/" };
+	@RequestMapping("/detect-device")
+	public @ResponseBody String detectDevice(Device device) {
+		String deviceType = "unknown";
+		if (device.isNormal()) {
+			deviceType = "normal";
+		} else if (device.isMobile()) {
+			deviceType = "mobile";
+		} else if (device.isTablet()) {
+			deviceType = "tablet";
+		}
+		return "Hello " + deviceType + " browser!";
 	}
 
 }
