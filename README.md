@@ -249,12 +249,7 @@ java -jar target/gs-device-detection-web-1.0.jar
 Logging output is displayed. The service should be up and running within a few seconds.
 
 
-## Next Steps
-
-
-
-Summary
--------
+## Summary
 
 Congratulations! You have just developed a simple web page that detects the type of device being used by the client. This of course is just the beginning, and there are many more features to explore and take advantage of. Be sure to check out Spring's support for [securing](TODO), [describing](TODO) [managing](TODO), [testing](TODO) and [consuming](/gs-consuming-rest) RESTful web services.
 
