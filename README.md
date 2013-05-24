@@ -1,4 +1,4 @@
-# Getting Started: Device Detection in Web Applications
+# Getting Started: Device Detection
 
 
 ## What you'll build
@@ -45,7 +45,7 @@ In a project directory of your choosing, create the following subdirectory struc
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.springframework</groupId>
-    <artifactId>gs-device-detection-web</artifactId>
+    <artifactId>gs-device-detection</artifactId>
     <version>1.0</version>
 
     <parent>
@@ -243,7 +243,7 @@ mvn package
 Run your service with `java -jar` at the command line:
 
 ```sh
-java -jar target/gs-device-detection-web-1.0.jar
+java -jar target/gs-device-detection-1.0.jar
 ```
 
 Logging output is displayed. The service should be up and running within a few seconds.
@@ -255,7 +255,7 @@ Congratulations! You have just developed a simple web page that detects the type
 
 
 [mvn]: http://maven.apache.org/download.cgi
-[zip]: https://github.com/springframework-meta/gs-device-detection-web/archive/master.zip
+[zip]: https://github.com/springframework-meta/gs-device-detection/archive/master.zip
 [jdk]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 [u-war]: /understanding/war
 [u-tomcat]: /understanding/tomcat
