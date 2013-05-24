@@ -109,6 +109,8 @@ In a project directory of your choosing, create the following subdirectory struc
 
 In our Spring configuration, we will need to tell Spring where it can find our endpoint controller class. The following configuration class takes care of this:
 
+`src/main/java/hello/DeviceDetectionConfiguration.java`
+
 ```java
 package hello;
 
@@ -143,6 +145,8 @@ This class also subclasses [`WebMvcConfigurerAdapter`], which allows us to add s
 ## Creating a Web Controller
 
 In Spring, web endpoints are just Spring MVC controllers. The following Spring MVC controller handles a GET request and returns a String indicating the type of the device:
+
+`src/main/java/hello/DeviceDetectionController.java`
 
 ```java
 package hello;
