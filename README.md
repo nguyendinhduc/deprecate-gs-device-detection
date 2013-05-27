@@ -15,14 +15,14 @@ This guide will walk you through the process of detecting the type of device acc
  - [JDK 6][jdk] or later
  - [Maven 3.0][mvn] or later
 
-[macro:how-to-complete-this-guide]
+{!snippet:how-to-complete-this-guide}
 
 
 <a name="scratch"></a>
 ## Set up the project
 
 
-[macro:build-system-intro]
+{!snippet:build-system-intro}
 
 ### Create the directory structure
 
@@ -35,7 +35,7 @@ In a project directory of your choosing, create the following subdirectory struc
 
 ### Create a Maven POM
 
-[macro:maven-project-setup-options]
+{!snippet:maven-project-setup-options}
 
 `pom.xml`
 ```xml
@@ -102,7 +102,7 @@ In a project directory of your choosing, create the following subdirectory struc
 
 ```
 
-[macro:bootstrap-starter-pom-disclaimer]
+{!snippet:bootstrap-starter-pom-disclaimer}
 
 
 ## Creating a Configuration Class
