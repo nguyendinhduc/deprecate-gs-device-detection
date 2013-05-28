@@ -126,19 +126,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class DeviceDetectionConfiguration extends WebMvcConfigurerAdapter {
 
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(new DeviceResolverHandlerInterceptor());
-	}
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new DeviceResolverHandlerInterceptor());
+    }
 
-	@Override
-	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-		argumentResolvers.add(new DeviceHandlerMethodArgumentResolver());
-	}
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        argumentResolvers.add(new DeviceHandlerMethodArgumentResolver());
+    }
 
 }
 ```
-	
+
 This class also subclasses [`WebMvcConfigurerAdapter`], which allows us to add some additional configuration to a Spring MVC application. In this case, we are adding two additional components, a [`DeviceResolverHandlerInterceptor`], and [`DeviceHandlerMethodArgumentResolver`]. [`DeviceResolverHandlerInterceptor`] is an implementation of a [`HandlerInterceptor`] which, as the name implies, intercepts a request to the application and determines the type of requesting device. After the device is resolved, the [`DeviceHandlerMethodArgumentResolver`] allows Spring MVC to make use of the resolved [`Device`] object in a controller method.
 
 
@@ -159,18 +159,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class DeviceDetectionController {
 
-	@RequestMapping("/detect-device")
-	public @ResponseBody String detectDevice(Device device) {
-		String deviceType = "unknown";
-		if (device.isNormal()) {
-			deviceType = "normal";
-		} else if (device.isMobile()) {
-			deviceType = "mobile";
-		} else if (device.isTablet()) {
-			deviceType = "tablet";
-		}
-		return "Hello " + deviceType + " browser!";
-	}
+    @RequestMapping("/detect-device")
+    public @ResponseBody String detectDevice(Device device) {
+        String deviceType = "unknown";
+        if (device.isNormal()) {
+            deviceType = "normal";
+        } else if (device.isMobile()) {
+            deviceType = "mobile";
+        } else if (device.isTablet()) {
+            deviceType = "tablet";
+        }
+        return "Hello " + deviceType + " browser!";
+    }
 
 }
 ```
