@@ -46,7 +46,7 @@ In a project directory of your choosing, create the following subdirectory struc
 
     <groupId>org.springframework</groupId>
     <artifactId>gs-device-detection</artifactId>
-    <version>1.0</version>
+    <version>0.1.0</version>
 
     <parent>
         <groupId>org.springframework.bootstrap</groupId>
@@ -247,7 +247,7 @@ mvn package
 Run your service with `java -jar` at the command line:
 
 ```sh
-java -jar target/gs-device-detection-1.0.jar
+java -jar target/gs-device-detection-0.1.0.jar
 ```
 
 Logging output is displayed. The service should be up and running within a few seconds.
