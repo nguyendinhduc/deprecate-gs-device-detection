@@ -4,16 +4,14 @@
 ## What you'll build
 
 
-This guide will walk you through the process of detecting the type of device accessing your web site using Spring.
+This guide walks you through the process of using Spring to detect the type of device that is accessing your web site.
 
 
 ## What you'll need
 
 
  - About 15 minutes
- - A favorite text editor or IDE
- - [JDK 6][jdk] or later
- - [Maven 3.0][mvn] or later
+ - {!snippet:prereq-editor-jdk-buildtools}
 
 {!snippet:how-to-complete-this-guide}
 
@@ -24,14 +22,7 @@ This guide will walk you through the process of detecting the type of device acc
 
 {!snippet:build-system-intro}
 
-### Create the directory structure
-
-In a project directory of your choosing, create the following subdirectory structure; for example, with `mkdir -p src/main/java/hello` on *nix systems:
-
-    └── src
-        └── main
-            └── java
-                └── hello
+{!snippet:create-directory-structure-hello}
 
 ### Create a Maven POM
 
@@ -105,9 +96,8 @@ In a project directory of your choosing, create the following subdirectory struc
 {!snippet:bootstrap-starter-pom-disclaimer}
 
 
-## Creating a Configuration Class
-
-In our Spring configuration, we will need to tell Spring where it can find our endpoint controller class. The following configuration class takes care of this:
+## Create a configuration class
+Use the following configuration class to tell Spring where it can find the endpoint controller class:
 
 `src/main/java/hello/DeviceDetectionConfiguration.java`
 
@@ -139,12 +129,12 @@ public class DeviceDetectionConfiguration extends WebMvcConfigurerAdapter {
 }
 ```
 
-This class also subclasses [`WebMvcConfigurerAdapter`], which allows us to add some additional configuration to a Spring MVC application. In this case, we are adding two additional components, a [`DeviceResolverHandlerInterceptor`], and [`DeviceHandlerMethodArgumentResolver`]. [`DeviceResolverHandlerInterceptor`] is an implementation of a [`HandlerInterceptor`] which, as the name implies, intercepts a request to the application and determines the type of requesting device. After the device is resolved, the [`DeviceHandlerMethodArgumentResolver`] allows Spring MVC to make use of the resolved [`Device`] object in a controller method.
+This class also subclasses [`WebMvcConfigurerAdapter`], which allows you to add configuration to a Spring MVC application. In this case, you add two components, a [`DeviceResolverHandlerInterceptor`], and [`DeviceHandlerMethodArgumentResolver`]. [`DeviceResolverHandlerInterceptor`] is an implementation of a [`HandlerInterceptor`] which, as the name implies, intercepts a request to the application and determines the type of requesting device. After the device is resolved, the [`DeviceHandlerMethodArgumentResolver`] allows Spring MVC to use the resolved [`Device`] object in a controller method.
 
 
-## Creating a Web Controller
+## Create a web controller
 
-In Spring, web endpoints are just Spring MVC controllers. The following Spring MVC controller handles a GET request and returns a String indicating the type of the device:
+In Spring, web endpoints are simply Spring MVC controllers. The following Spring MVC controller handles a GET request and returns a String indicating the type of the device:
 
 `src/main/java/hello/DeviceDetectionController.java`
 
@@ -175,7 +165,7 @@ public class DeviceDetectionController {
 }
 ```
 
-For this example, rather than rely on a view (such as JSP) to render model data in HTML, this controller simply returns the data to be written directly to the body of the response. In this case, that data is a String which reads, "Hello mobile browser!" if the requesting client is a mobile device. This is possible with the use of the [`@ResponseBody`] annotation. [`@ResponseBody`] tells Spring MVC to not render a model into a view, but rather to write the returned object into the response body.
+For this example, rather than rely on a view (such as JSP) to render model data in HTML, this controller simply returns the data to be written directly to the body of the response. In this case, the data is a String that reads, "Hello mobile browser!" if the requesting client is a mobile device. The [`@ResponseBody`] annotation tells Spring MVC to write the returned object into the response body, rather than to render a model into a view.
 
 
 ## Make the application executable
@@ -184,6 +174,7 @@ For this example, rather than rely on a view (such as JSP) to render model data 
 Although it is possible to package this service as a traditional _web application archive_ or [WAR][u-war] file for deployment to an external application server, the simpler approach demonstrated below creates a _standalone application_. You package everything in a single, executable JAR file, driven by a good old Java `main()` method. And along the way, you use Spring's support for embedding the [Tomcat][u-tomcat] servlet container as the HTTP runtime, instead of deploying to an external instance.
 
 ### Create a main class
+The `main()` method defers to the [`SpringApplication`][] helper class, providing `Application.class` as an argument to its `run()` method. This tells Spring to read the annotation metadata from `Application` and to manage it as a component in the _[Spring application context][u-application-context]_.
 
 `src/main/java/hello/Application.java`
 
@@ -203,43 +194,12 @@ public class Application {
     }
 }
 ```
-The `main()` method defers to the [`SpringApplication`][] helper class, providing `Application.class` as an argument to its `run()` method. This tells Spring to read the annotation metadata from `Application` and to manage it as a component in the _[Spring application context][u-application-context]_.
 
 The `@ComponentScan` annotation tells Spring to search recursively through the `hello` package and its children for classes marked directly or indirectly with Spring's [`@Component`][] annotation. This directive ensures that Spring finds and registers the `DeviceDetectionConfiguration` and `DeviceDetectionController` classes, because they are marked with `@Controller`, which in turn is a kind of `@Component` annotation.
 
 The [`@EnableAutoConfiguration`][] annotation switches on reasonable default behaviors based on the content of your classpath. For example, because the application depends on the embeddable version of Tomcat (tomcat-embed-core.jar), a Tomcat server is set up and configured with reasonable defaults on your behalf. And because the application also depends on Spring MVC (spring-webmvc.jar), a Spring MVC [`DispatcherServlet`][] is configured and registered for you — no `web.xml` necessary! Auto-configuration is a powerful, flexible mechanism. See the [API documentation][`@EnableAutoConfiguration`] for further details.
 
-### Build an executable JAR
-
-Now that your `Application` class is ready, you simply instruct the build system to create a single, executable jar containing everything. This makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
-
-Add the following configuration to your existing Maven POM:
-
-`pom.xml`
-```xml
-    <properties>
-        <start-class>hello.Application</start-class>
-    </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-```
-
-The `start-class` property tells Maven to create a `META-INF/MANIFEST.MF` file with a `Main-Class: hello.Application` entry. This entry enables you to run the jar with `java -jar`.
-
-The [Maven Shade plugin][maven-shade-plugin] extracts classes from all the jars on the classpath and builds a single "über-jar", which makes it more convenient to execute and transport your service.
-
-Now run the following to produce a single executable JAR file containing all necessary dependency classes and resources:
-
-```sh
-mvn package
-```
+### {!snippet:build-an-executable-jar}
 
 
 ## Run the service
@@ -255,7 +215,7 @@ Logging output is displayed. The service should be up and running within a few s
 
 ## Summary
 
-Congratulations! You have just developed a simple web page that detects the type of device being used by the client. This of course is just the beginning, and there are many more features to explore and take advantage of. Be sure to check out Spring's support for [securing](TODO), [describing](TODO) [managing](TODO), [testing](TODO) and [consuming](/gs-consuming-rest) RESTful web services.
+Congratulations! You have just developed a simple web page that detects the type of device being used by the client. There are many more features to explore and take advantage of. Be sure to check out Spring's support for [securing](TODO), [describing](TODO) [managing](TODO), [testing](TODO) and [consuming](/gs-consuming-rest) RESTful web services.
 
 
 [mvn]: http://maven.apache.org/download.cgi
