@@ -1,14 +1,11 @@
 # Getting Started: Device Detection
 
-
 ## What you'll build
-
 
 This guide walks you through the process of using Spring to detect the type of device that is accessing your web site.
 
 
 ## What you'll need
-
 
  - About 15 minutes
  - {!snippet:prereq-editor-jdk-buildtools}
@@ -18,7 +15,6 @@ This guide walks you through the process of using Spring to detect the type of d
 
 <a name="scratch"></a>
 ## Set up the project
-
 
 {!snippet:build-system-intro}
 
@@ -57,19 +53,6 @@ This guide walks you through the process of using Spring to detect the type of d
         </dependency>
     </dependencies>
 
-    <properties>
-        <start-class>hello.Application</start-class>
-    </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
     <!-- TODO: remove once bootstrap and Spring Mobile go GA -->
     <repositories>
         <repository>
@@ -96,7 +79,9 @@ This guide walks you through the process of using Spring to detect the type of d
 {!snippet:bootstrap-starter-pom-disclaimer}
 
 
+<a name="initial"></a>
 ## Create a configuration class
+
 Use the following configuration class to tell Spring where it can find the endpoint controller class:
 
 `src/main/java/hello/DeviceDetectionConfiguration.java`
@@ -170,7 +155,6 @@ For this example, rather than rely on a view (such as JSP) to render model data 
 
 ## Make the application executable
 
-
 Although it is possible to package this service as a traditional _web application archive_ or [WAR][u-war] file for deployment to an external application server, the simpler approach demonstrated below creates a _standalone application_. You package everything in a single, executable JAR file, driven by a good old Java `main()` method. And along the way, you use Spring's support for embedding the [Tomcat][u-tomcat] servlet container as the HTTP runtime, instead of deploying to an external instance.
 
 ### Create a main class
@@ -207,16 +191,14 @@ The [`@EnableAutoConfiguration`][] annotation switches on reasonable default beh
 
 Run your service with `java -jar` at the command line:
 
-```sh
-java -jar target/gs-device-detection-0.1.0.jar
-```
+    java -jar target/gs-device-detection-0.1.0.jar
 
 Logging output is displayed. The service should be up and running within a few seconds.
 
 
 ## Summary
 
-Congratulations! You have just developed a simple web page that detects the type of device being used by the client. There are many more features to explore and take advantage of. Be sure to check out Spring's support for [securing](TODO), [describing](TODO) [managing](TODO), [testing](TODO) and [consuming](/gs-consuming-rest) RESTful web services.
+Congratulations! You have just developed a simple web page that detects the type of device being used by the client.
 
 
 [mvn]: http://maven.apache.org/download.cgi
