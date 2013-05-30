@@ -195,6 +195,21 @@ Run your service with `java -jar` at the command line:
 
 Logging output is displayed. The service should be up and running within a few seconds.
 
+## Test the application
+
+To test the application, point your browser at http://localhost:8080/detect-device. In a normal desktop browser, you should see something like this:
+
+![The response for a normal desktop browser](images/normal-browser.png)
+
+On the other hand, if you point a mobile browser at the same URL (such as the iOS Simulator's browser), you should see something like this (you may have to zoom in on the mobile browser to read the message clearly):
+
+![The response for a mobile browser](images/mobile-browser.png)
+
+Likewise, if you were to point a tablet browser at the URL, you should see something like this:
+
+![The response for a tablet browser](images/tablet-browser.png)
+
+Note that if you want to use a real mobile device to test this controller, it will not work with the localhost server. You'll need to find the name of your machine on your network and use that instead of localhost.
 
 ## Summary
 
