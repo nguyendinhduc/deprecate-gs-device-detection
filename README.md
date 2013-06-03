@@ -8,21 +8,21 @@ This guide walks you through the process of using Spring to detect the type of d
 ## What you'll need
 
  - About 15 minutes
- - {!snippet:prereq-editor-jdk-buildtools}
+ - {!include#prereq-editor-jdk-buildtools}
 
-{!snippet:how-to-complete-this-guide}
+{!include#how-to-complete-this-guide}
 
 
 <a name="scratch"></a>
 ## Set up the project
 
-{!snippet:build-system-intro}
+{!include#build-system-intro}
 
-{!snippet:create-directory-structure-hello}
+{!include#create-directory-structure-hello}
 
 ### Create a Maven POM
 
-{!snippet:maven-project-setup-options}
+{!include#maven-project-setup-options}
 
 `pom.xml`
 ```xml
@@ -76,7 +76,7 @@ This guide walks you through the process of using Spring to detect the type of d
 
 ```
 
-{!snippet:bootstrap-starter-pom-disclaimer}
+{!include#bootstrap-starter-pom-disclaimer}
 
 
 <a name="initial"></a>
@@ -185,7 +185,7 @@ The `@ComponentScan` annotation tells Spring to search recursively through the `
 
 The [`@EnableAutoConfiguration`][] annotation switches on reasonable default behaviors based on the content of your classpath. For example, because the application depends on the embeddable version of Tomcat (tomcat-embed-core.jar), a Tomcat server is set up and configured with reasonable defaults on your behalf. And because the application also depends on Spring MVC (spring-webmvc.jar), a Spring MVC [`DispatcherServlet`][] is configured and registered for you — no `web.xml` necessary! Auto-configuration is a powerful, flexible mechanism. See the [API documentation][`@EnableAutoConfiguration`] for further details.
 
-### {!snippet:build-an-executable-jar}
+### {!include#build-an-executable-jar}
 
 
 ## Run the service
