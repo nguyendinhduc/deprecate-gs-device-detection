@@ -1,11 +1,13 @@
 # Getting Started: Device Detection
 
-## What you'll build
+What you'll build
+-----------------
 
 This guide walks you through the process of using Spring to detect the type of device that is accessing your web site.
 
 
-## What you'll need
+What you'll need
+----------------
 
  - About 15 minutes
  - A favorite text editor or IDE
@@ -25,15 +27,16 @@ To **start from scratch**, move on to [Set up the project](#scratch).
 To **skip the basics**, do the following:
 
  - [Download][zip] and unzip the source repository for this guide, or clone it using [git](/understanding/git):
-`git clone https://github.com/springframework-meta/{@project-name}.git`
- - cd into `{@project-name}/initial`
+`git clone https://github.com/springframework-meta/gs-device-detection.git`
+ - cd into `gs-device-detection/initial`
  - Jump ahead to [Create a resource representation class](#initial).
 
-**When you're finished**, you can check your results against the code in `{@project-name}/complete`.
+**When you're finished**, you can check your results against the code in `gs-device-detection/complete`.
 
 
 <a name="scratch"></a>
-## Set up the project
+Set up the project
+------------------
 
 First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Getting Started with Maven](../gs-maven/README.md) or [Getting Started with Gradle](../gs-gradle/README.md).
 
@@ -47,8 +50,6 @@ In a project directory of your choosing, create the following subdirectory struc
                 └── hello
 
 ### Create a Maven POM
-
-> **ERROR:** Section 'maven-project-setup-options' not found
 
 `pom.xml`
 ```xml
@@ -92,7 +93,7 @@ In a project directory of your choosing, create the following subdirectory struc
         </plugins>
     </build>
 
-    <!-- TODO: remove once bootstrap goes GA -->
+    <!-- TODO: remove once bootstrap and Spring Mobile go GA -->
     <repositories>
         <repository>
             <id>spring-snapshots</id>
@@ -116,12 +117,12 @@ In a project directory of your choosing, create the following subdirectory struc
 
 TODO: mention that we're using Spring Bootstrap's [_starter POMs_](../gs-bootstrap-starter) here.
 
-> Note to experienced Maven users who don't use an external parent project: You can take it out later, it's just there to reduce the amount of code you have to write to get started.
-
+Note to experienced Maven users who are unaccustomed to using an external parent project: you can take it out later, it's just there to reduce the amount of code you have to write to get started.
 
 
 <a name="initial"></a>
-## Create a configuration class
+Create a configuration class
+----------------------------
 
 Use the following configuration class to tell Spring where it can find the endpoint controller class:
 
@@ -158,7 +159,8 @@ This class subclasses [`WebMvcConfigurerAdapter`], which allows you to customize
 
 Under the hood, `DeviceResolverHandlerInterceptor` examines the `User-Agent` header in the incoming request and based on its value determines if the request is coming from a normal (desktop) browser, a mobile (phone) browser, or a tablet browser. You could, of course, parse the `User-Agent` header yourself to determine if you're dealing with a mobile device or not. But [`User-Agent` sniffing can be tricky](http://googlewebmastercentral.blogspot.co.at/2011/03/mo-better-to-also-detect-mobile-user.html). Therefore, it's better to let `DeviceResolverHandlerInterceptor` handle that for you.
 
-## Create a web controller
+Create a web controller
+-----------------------
 
 In Spring, web endpoints are simply Spring MVC controllers. The following Spring MVC controller handles a GET request and returns a String indicating the type of the device:
 
@@ -193,7 +195,8 @@ public class DeviceDetectionController {
 For this example, rather than rely on a view (such as JSP) to render model data in HTML, this controller simply returns the data to be written directly to the body of the response. In this case, the data is a String that reads, "Hello mobile browser!" if the requesting client is a mobile device. The [`@ResponseBody`] annotation tells Spring MVC to write the returned object into the response body, rather than to render a model into a view.
 
 
-## Make the application executable
+Make the application executable
+-------------------------------
 
 Although it is possible to package this service as a traditional _web application archive_ or [WAR][u-war] file for deployment to an external application server, the simpler approach demonstrated below creates a _standalone application_. You package everything in a single, executable JAR file, driven by a good old Java `main()` method. And along the way, you use Spring's support for embedding the [Tomcat][u-tomcat] servlet container as the HTTP runtime, instead of deploying to an external instance.
 
@@ -257,15 +260,19 @@ Now run the following to produce a single executable JAR file containing all nec
 [maven-shade-plugin]: https://maven.apache.org/plugins/maven-shade-plugin
 
 
-## Run the service
+Run the service
+---------------
 
 Run your service with `java -jar` at the command line:
 
-    java -jar target/gs-device-detection-0.1.0.jar
+```sh
+$ java -jar target/gs-device-detection-0.1.0.jar
+```
 
 Logging output is displayed. The service should be up and running within a few seconds.
 
-## Test the application
+Test the service
+----------------
 
 To test the application, point your browser at http://localhost:8080/detect-device. In a normal desktop browser, you should see something like this:
 
@@ -281,18 +288,16 @@ Likewise, if you were to point a tablet browser at the URL, you should see somet
 
 Note that if you want to use a real mobile device to test this controller, it will not work with the localhost server. You'll need to find the name of your machine on your network and use that instead of localhost.
 
-## Summary
+Summary
+-------
 
 Congratulations! You have just developed a simple web page that detects the type of device being used by the client.
 
 
-[mvn]: http://maven.apache.org/download.cgi
 [zip]: https://github.com/springframework-meta/gs-device-detection/archive/master.zip
-[jdk]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 [u-war]: /understanding/war
 [u-tomcat]: /understanding/tomcat
 [u-application-context]: /understanding/application-context
-[maven-shade-plugin]: https://maven.apache.org/plugins/maven-shade-plugin
 [`@Configuration`]:http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/context/annotation/Configuration.html
 [`WebMvcConfigurerAdapter`]:http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurerAdapter.html
 [`DeviceResolverHandlerInterceptor`]:http://static.springsource.org/spring-mobile/docs/1.1.x/api/org/springframework/mobile/device/DeviceResolverHandlerInterceptor.html
