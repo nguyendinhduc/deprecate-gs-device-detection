@@ -2,6 +2,7 @@
 
 # Getting Started: Device Detection
 
+
 What you'll build
 -----------------
 
@@ -14,7 +15,8 @@ What you'll need
  - About 15 minutes
  - <@prereq_editor_jdk_buildtools/>
 
-## <@how_to_complete_this_guide/>
+
+## <@how_to_complete_this_guide jump_ahead='Create a configuration class'/>
 
 
 <a name="scratch"></a>
@@ -43,6 +45,7 @@ Use the following configuration class to tell Spring where it can find the endpo
 This class subclasses [`WebMvcConfigurerAdapter`], which allows you to customize the configuration of a Spring MVC application. In this case, you add two components, a [`DeviceResolverHandlerInterceptor`], and [`DeviceHandlerMethodArgumentResolver`]. [`DeviceResolverHandlerInterceptor`] is an implementation of a [`HandlerInterceptor`] which, as the name implies, intercepts a request to the application and determines the type of requesting device. After the device is resolved, the [`DeviceHandlerMethodArgumentResolver`] allows Spring MVC to use the resolved [`Device`] object in a controller method.
 
 Under the hood, `DeviceResolverHandlerInterceptor` examines the `User-Agent` header in the incoming request and based on its value determines if the request is coming from a normal (desktop) browser, a mobile (phone) browser, or a tablet browser. You could, of course, parse the `User-Agent` header yourself to determine if you're dealing with a mobile device or not. But [`User-Agent` sniffing can be tricky](http://googlewebmastercentral.blogspot.co.at/2011/03/mo-better-to-also-detect-mobile-user.html). Therefore, it's better to let `DeviceResolverHandlerInterceptor` handle that for you.
+
 
 Create a web controller
 -----------------------
@@ -78,10 +81,11 @@ Run the service
 Run your service with `java -jar` at the command line:
 
 ```sh
-$ java -jar target/gs-device-detection-0.1.0.jar
+$ java -jar target/${project_id}-0.1.0.jar
 ```
 
 Logging output is displayed. The service should be up and running within a few seconds.
+
 
 Test the service
 ----------------
@@ -100,13 +104,13 @@ Likewise, if you were to point a tablet browser at the URL, you should see somet
 
 Note that if you want to use a real mobile device to test this controller, it will not work with the localhost server. You'll need to find the name of your machine on your network and use that instead of localhost.
 
+
 Summary
 -------
 
 Congratulations! You have just developed a simple web page that detects the type of device being used by the client.
 
 
-[zip]: https://github.com/springframework-meta/gs-device-detection/archive/master.zip
 [u-war]: /understanding/war
 [u-tomcat]: /understanding/tomcat
 [u-application-context]: /understanding/application-context
