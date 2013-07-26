@@ -1,7 +1,4 @@
 
-# Getting Started: Detecting a Device
-
-
 What you'll build
 -----------------
 

@@ -1,8 +1,5 @@
 <#assign project_id="gs-device-detection">
 
-# Getting Started: Detecting a Device
-
-
 What you'll build
 -----------------
 
