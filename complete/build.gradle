@@ -1,6 +1,5 @@
 buildscript {
     repositories {
-        mavenCentral()
         maven { url "http://repo.springsource.org/libs-snapshot" }
     }
     dependencies {
@@ -18,8 +17,7 @@ jar {
 
 repositories {
     mavenCentral()
-    maven { url "http://repo.springsource.org/milestone" }
-    maven { url "http://repo.springsource.org/snapshot" }
+    maven { url "http://repo.springsource.org/libs-snapshot" }
 }
 
 dependencies {
