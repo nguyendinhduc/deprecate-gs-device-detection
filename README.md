@@ -252,15 +252,14 @@ $ mvn package
 
 > **Note:** The procedure above will create a runnable JAR. You can also opt to [build a classic WAR file](/guides/gs/convert-jar-to-war/content) instead.
 
-
 Run the service
----------------
-
-Run your service with `java -jar` at the command line:
+-------------------
+Run your service using the spring-boot plugin at the command line:
 
 ```sh
-$ java -jar target/gs-device-detection-0.1.0.jar
+$ mvn spring-boot:run
 ```
+
 
 Logging output is displayed. The service should be up and running within a few seconds.
 

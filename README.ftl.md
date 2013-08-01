@@ -73,15 +73,7 @@ The [`@EnableAutoConfiguration`][] annotation switches on reasonable default beh
 
 <@build_an_executable_jar/>
 
-
-Run the service
----------------
-
-Run your service with `java -jar` at the command line:
-
-```sh
-$ java -jar target/${project_id}-0.1.0.jar
-```
+<@run_the_application_with_maven module="service"/>
 
 Logging output is displayed. The service should be up and running within a few seconds.
 
