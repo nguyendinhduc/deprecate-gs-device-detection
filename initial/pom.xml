@@ -25,7 +25,6 @@
         </dependency>
     </dependencies>
 
-    <!-- TODO: remove once bootstrap and Spring Mobile go GA -->
     <repositories>
         <repository>
             <id>spring-snapshots</id>
