@@ -1,9 +1,9 @@
+This guide walks you through the process of using Spring to detect the type of device that is accessing your web site.
 
 What you'll build
 -----------------
 
-This guide walks you through the process of using Spring to detect the type of device that is accessing your web site.
-
+You'll create a Spring MVC application that detects the device viewing and switches views dynamically.
 
 What you'll need
 ----------------
@@ -39,7 +39,7 @@ To **skip the basics**, do the following:
 Set up the project
 ------------------
 
-First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Building Java Projects with Maven](/guides/gs/maven/) or [Building Java Projects with Gradle](/guides/gs/gradle/).
+First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Building Java Projects with Maven](/guides/gs/maven) or [Building Java Projects with Gradle](/guides/gs/gradle/).
 
 ### Create the directory structure
 
@@ -85,20 +85,22 @@ In a project directory of your choosing, create the following subdirectory struc
         <repository>
             <id>spring-snapshots</id>
             <url>http://repo.springsource.org/libs-snapshot</url>
-            <snapshots><enabled>true</enabled></snapshots>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <url>http://repo.springsource.org/libs-milestone</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
+    
     <pluginRepositories>
         <pluginRepository>
             <id>spring-snapshots</id>
             <url>http://repo.springsource.org/libs-snapshot</url>
-            <snapshots><enabled>true</enabled></snapshots>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
 </project>
 ```
 

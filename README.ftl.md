@@ -1,10 +1,10 @@
 <#assign project_id="gs-device-detection">
+This guide walks you through the process of using Spring to detect the type of device that is accessing your web site.
 
 What you'll build
 -----------------
 
-This guide walks you through the process of using Spring to detect the type of device that is accessing your web site.
-
+You'll create a Spring MVC application that detects the device viewing and switches views dynamically.
 
 What you'll need
 ----------------
