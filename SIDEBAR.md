@@ -9,10 +9,10 @@ Device detection is just one tool in a mobile developer's toolbox. You can conti
 * [Installing the Android Development Environment][gs-android]
 * [Building Android Projects with Maven][gs-maven-android]
 
-[gs-consuming-rest-android]: /guides/gs/consuming-rest-android/content
-[gs-consuming-rest-xml-android]: /guides/gs/consuming-rest-xml-android/content
-[gs-android]: /guides/gs/android/content
-[gs-maven-android]: /guides/gs/maven-android/content
+[gs-consuming-rest-android]: /guides/gs/consuming-rest-android/
+[gs-consuming-rest-xml-android]: /guides/gs/consuming-rest-xml-android/
+[gs-android]: /guides/gs/android/
+[gs-maven-android]: /guides/gs/maven-android/
 
 ### Tutorials
 
