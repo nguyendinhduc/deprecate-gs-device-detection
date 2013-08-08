@@ -29,18 +29,20 @@
         <repository>
             <id>spring-snapshots</id>
             <url>http://repo.springsource.org/libs-snapshot</url>
-            <snapshots><enabled>true</enabled></snapshots>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <url>http://repo.springsource.org/libs-milestone</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
+    
     <pluginRepositories>
         <pluginRepository>
             <id>spring-snapshots</id>
             <url>http://repo.springsource.org/libs-snapshot</url>
-            <snapshots><enabled>true</enabled></snapshots>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
 </project>
