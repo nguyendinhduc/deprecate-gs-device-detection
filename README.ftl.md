@@ -102,8 +102,8 @@ Summary
 Congratulations! You have just developed a simple web page that detects the type of device being used by a client.
 
 
-[u-war]: /understanding/war
-[u-tomcat]: /understanding/tomcat
+[u-war]: /understanding/WAR
+[u-tomcat]: /understanding/Tomcat
 [u-application-context]: /understanding/application-context
 [`@Configuration`]:http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/context/annotation/Configuration.html
 [`WebMvcConfigurerAdapter`]:http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurerAdapter.html
