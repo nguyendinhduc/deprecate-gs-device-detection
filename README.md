@@ -3,7 +3,7 @@ This guide walks you through the process of using Spring to detect the type of d
 What you'll build
 -----------------
 
-You'll create a Spring MVC application that detects the device viewing and switches views dynamically.
+You'll create a Spring MVC application that detects the type of device that is accessing your web site and that switches views dynamically based on that device type.
 
 What you'll need
 ----------------

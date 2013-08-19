@@ -1,11 +1,11 @@
-## Related Resources
+## Related resources
 
 Device detection is just one tool in a mobile developer's toolbox. You can continue to explore mobile application development with the following resources.
 
 ### Getting Started guides
 
-* [Consuming REST Services with Spring for Android][gs-consuming-rest-android]
-* [Consuming XML From a REST Service with Spring for Android][gs-consuming-rest-xml-android]
+* [Consuming RESTful Web Services with Spring for Android][gs-consuming-rest-android]
+* [Consuming XML from a RESTful Web Service with Spring for Android][gs-consuming-rest-xml-android]
 * [Installing the Android Development Environment][gs-android]
 * [Building Android Projects with Maven][gs-maven-android]
 
@@ -20,7 +20,7 @@ Device detection is just one tool in a mobile developer's toolbox. You can conti
 
 [tut-rest]: /guides/tutorials/rest
 
-### Concepts and Technologies
+### Concepts and technologies
 
 * [REST][u-rest]
 * [JSON][u-json]
