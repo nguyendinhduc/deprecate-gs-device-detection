@@ -17,8 +17,10 @@ Device detection is just one tool in a mobile developer's toolbox. You can conti
 ### Tutorials
 
 * [Designing and Implementing RESTful Web Services with Spring][tut-rest]
+* [Designing and Implementing a Web Site with Spring][tut-web]
 
 [tut-rest]: /guides/tutorials/rest
+[tut-web]: /guides/tutorials/web
 
 ### Concepts and technologies
 
