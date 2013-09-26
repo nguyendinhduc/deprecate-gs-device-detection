@@ -83,7 +83,7 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:0.5.0.M2")
-    compile("org.springframework.mobile:spring-mobile-device:1.1.0.M3")
+    compile("org.springframework.mobile:spring-mobile-device:1.1.0.RC1")
     testCompile("junit:junit:4.11")
 }
 
