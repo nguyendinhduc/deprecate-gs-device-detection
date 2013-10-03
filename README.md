@@ -62,7 +62,7 @@ Below is the [initial Gradle build file](https://github.com/spring-guides/gs-dev
 ```gradle
 buildscript {
     repositories {
-        maven { url "http://repo.spring.io/libs-snapshot" }
+        maven { url "http://repo.spring.io/libs-milestone" }
         mavenLocal()
     }
 }
@@ -78,12 +78,12 @@ jar {
 
 repositories {
     mavenCentral()
-    maven { url "http://repo.spring.io/libs-snapshot" }
+    maven { url "http://repo.spring.io/libs-milestone" }
 }
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:0.5.0.M4")
-    compile("org.springframework.mobile:spring-mobile-device:1.1.0.RC1")
+    compile("org.springframework.mobile:spring-mobile-device:1.1.0.RELEASE")
     testCompile("junit:junit:4.11")
 }
 
