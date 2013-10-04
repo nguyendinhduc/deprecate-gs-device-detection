@@ -119,14 +119,24 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class DeviceDetectionConfiguration extends WebMvcConfigurerAdapter {
 
+	@Bean
+	DeviceResolverHandlerInterceptor deviceResolverHandlerInterceptor() {
+		return new DeviceResolverHandlerInterceptor();
+	}
+
+	@Bean
+	DeviceHandlerMethodArgumentResolver deviceHandlerMethodArgumentResolver() {
+		return new DeviceHandlerMethodArgumentResolver();
+	}
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new DeviceResolverHandlerInterceptor());
+        registry.addInterceptor(deviceResolverHandlerInterceptor());
     }
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-        argumentResolvers.add(new DeviceHandlerMethodArgumentResolver());
+        argumentResolvers.add(deviceHandlerMethodArgumentResolver());
     }
 
 }
