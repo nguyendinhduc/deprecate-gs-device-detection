@@ -4,28 +4,24 @@ Device detection is just one tool in a mobile developer's toolbox. You can conti
 
 ### Getting Started guides
 
-* [Consuming RESTful Web Services with Spring for Android][gs-consuming-rest-android]
-* [Consuming XML from a RESTful Web Service with Spring for Android][gs-consuming-rest-xml-android]
-* [Installing the Android Development Environment][gs-android]
-* [Building Android Projects with Maven][gs-maven-android]
+* [Serving Web Content with Spring MVC][gs-serving-web-content]
 
-[gs-consuming-rest-android]: /guides/gs/consuming-rest-android/
-[gs-consuming-rest-xml-android]: /guides/gs/consuming-rest-xml-android/
-[gs-android]: /guides/gs/android/
-[gs-maven-android]: /guides/gs/maven-android/
+[gs-serving-web-content]: /guides/gs/serving-web-content/
 
 ### Tutorials
 
-* [Designing and Implementing RESTful Web Services with Spring][tut-rest]
 * [Designing and Implementing a Web Application with Spring][tut-web]
+* [Designing and Implementing RESTful Web Services with Spring][tut-rest]
 
-[tut-rest]: /guides/tutorials/rest
 [tut-web]: /guides/tutorials/web
+[tut-rest]: /guides/tutorials/rest
 
 ### Concepts and technologies
 
+* [View Templates][u-view-templates]
 * [REST][u-rest]
 * [JSON][u-json]
 
+[u-view-templates]: /understanding/view-templates
 [u-rest]: /understanding/REST
 [u-json]: /understanding/JSON

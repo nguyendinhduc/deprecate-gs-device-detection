@@ -82,7 +82,7 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:0.5.0.M4")
+    compile("org.springframework.boot:spring-boot-starter-web:0.5.0.M5")
     compile("org.springframework.mobile:spring-mobile-device:1.1.0.RELEASE")
     testCompile("junit:junit:4.11")
 }
@@ -96,57 +96,9 @@ task wrapper(type: Wrapper) {
 
 > **Note:** This guide is using [Spring Boot](/guides/gs/spring-boot/).
 
+By including the Spring Mobile dependency, Spring Boot configures a [`DeviceResolverHandlerInterceptor`] and [`DeviceHandlerMethodArgumentResolver`] automatically. [`DeviceResolverHandlerInterceptor`] examines the `User-Agent` header in the incoming request, and based on the header value, determines whether the request is coming from a normal (desktop) browser, a mobile (phone) browser, or a tablet browser. The [`DeviceHandlerMethodArgumentResolver`] allows Spring MVC to use the resolved [`Device`] object in a controller method.
 
 <a name="initial"></a>
-Create a configuration class
-----------------------------
-
-Use the following configuration class to tell Spring where it can find the endpoint controller class:
-
-`src/main/java/hello/DeviceDetectionConfiguration.java`
-```java
-package hello;
-
-import java.util.List;
-
-import org.springframework.context.annotation.Configuration;
-import org.springframework.mobile.device.DeviceHandlerMethodArgumentResolver;
-import org.springframework.mobile.device.DeviceResolverHandlerInterceptor;
-import org.springframework.web.method.support.HandlerMethodArgumentResolver;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
-@Configuration
-public class DeviceDetectionConfiguration extends WebMvcConfigurerAdapter {
-
-	@Bean
-	DeviceResolverHandlerInterceptor deviceResolverHandlerInterceptor() {
-		return new DeviceResolverHandlerInterceptor();
-	}
-
-	@Bean
-	DeviceHandlerMethodArgumentResolver deviceHandlerMethodArgumentResolver() {
-		return new DeviceHandlerMethodArgumentResolver();
-	}
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(deviceResolverHandlerInterceptor());
-    }
-
-    @Override
-    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-        argumentResolvers.add(deviceHandlerMethodArgumentResolver());
-    }
-
-}
-```
-
-This class subclasses [`WebMvcConfigurerAdapter`], which allows you to customize the configuration of a Spring MVC application. In this case, you add two classes, [`DeviceResolverHandlerInterceptor`] and [`DeviceHandlerMethodArgumentResolver`]. [`DeviceResolverHandlerInterceptor`] is an implementation of a [`HandlerInterceptor`] which, as the name implies, intercepts a request to the application and determines the type of requesting device. After the device is resolved, the [`DeviceHandlerMethodArgumentResolver`] allows Spring MVC to use the resolved [`Device`] object in a controller method.
-
-Under the hood, `DeviceResolverHandlerInterceptor` examines the `User-Agent` header in the incoming request, and based on the header value, determines whether the request is coming from a normal (desktop) browser, a mobile (phone) browser, or a tablet browser. You could, of course, parse the `User-Agent` header yourself to determine if you're dealing with a mobile device or not. But [`User-Agent` sniffing can be tricky](http://googlewebmastercentral.blogspot.co.at/2011/03/mo-better-to-also-detect-mobile-user.html). Therefore, it's better to let `DeviceResolverHandlerInterceptor` handle that for you.
-
-
 Create a web controller
 -----------------------
 
