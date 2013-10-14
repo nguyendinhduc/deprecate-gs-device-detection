@@ -4,8 +4,10 @@ Device detection is just one tool in a mobile developer's toolbox. You can conti
 
 ### Getting Started guides
 
+* [Handling Web Site Preference][gs-handling-site-preference]
 * [Serving Web Content with Spring MVC][gs-serving-web-content]
 
+[gs-handling-site-preference]: /guides/gs/handling-site-preference/
 [gs-serving-web-content]: /guides/gs/serving-web-content/
 
 ### Tutorials
