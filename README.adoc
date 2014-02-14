@@ -2,8 +2,8 @@
 tags: []
 projects: []
 ---
-:spring_version: 4.0.0.RC1
-:spring_boot_version: 0.5.0.M6
+:spring_version: current
+:spring_boot_version: 1.0.0.RC3
 :Component: http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/stereotype/Component.html
 :DeviceHandlerMethodArgumentResolver: http://docs.spring.io/spring-mobile/docs/1.1.x/api/org/springframework/mobile/device/DeviceHandlerMethodArgumentResolver.html
 :Configuration: http://docs.spring.io/spring/docs/3.2.x/javadoc-api/org/springframework/context/annotation/Configuration.html
