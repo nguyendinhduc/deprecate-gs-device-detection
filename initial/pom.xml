@@ -25,10 +25,18 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <start-class>hello.Application</start-class>
+    </properties>
+
     <build>
         <plugins>
+            <plugin> 
+                <artifactId>maven-compiler-plugin</artifactId> 
+            </plugin>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

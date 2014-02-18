@@ -50,7 +50,7 @@ include::https://raw.github.com/spring-guides/getting-started-macros/master/crea
 include::initial/build.gradle[]
 ----
 
-include::https://raw.github.com/spring-guides/getting-started-macros/master/bootstrap_starter_pom_disclaimer.adoc[]
+include::https://raw.github.com/spring-guides/getting-started-macros/master/spring-boot-gradle-plugin.adoc[]
 
 By including the Spring Mobile dependency, Spring Boot configures a {DeviceResolverHandlerInterceptor}[`DeviceResolverHandlerInterceptor`] and {DeviceHandlerMethodArgumentResolver}[`DeviceHandlerMethodArgumentResolver`] automatically. {DeviceResolverHandlerInterceptor}[`DeviceResolverHandlerInterceptor`] examines the `User-Agent` header in the incoming request, and based on the header value, determines whether the request is coming from a normal (desktop) browser, a mobile (phone) browser, or a tablet browser. The {DeviceHandlerMethodArgumentResolver}[`DeviceHandlerMethodArgumentResolver`] allows Spring MVC to use the resolved {Device}[`Device`] object in a controller method.
 
