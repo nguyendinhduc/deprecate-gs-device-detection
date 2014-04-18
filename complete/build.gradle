@@ -25,8 +25,7 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.mobile:spring-mobile-device")
-    testCompile("junit:junit")
+    compile("org.springframework.boot:spring-boot-starter-mobile")
 }
 
 task wrapper(type: Wrapper) {
