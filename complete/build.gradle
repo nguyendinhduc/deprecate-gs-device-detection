@@ -25,7 +25,7 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.mobile:spring-mobile-device:1.1.0.RELEASE")
+    compile("org.springframework.mobile:spring-mobile-device")
     testCompile("junit:junit")
 }
 
