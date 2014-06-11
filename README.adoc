@@ -52,9 +52,13 @@ include::initial/build.gradle[]
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-gradle-plugin.adoc[]
 
-By including the Spring Mobile dependency, Spring Boot configures a {DeviceResolverHandlerInterceptor}[`DeviceResolverHandlerInterceptor`] and {DeviceHandlerMethodArgumentResolver}[`DeviceHandlerMethodArgumentResolver`] automatically. {DeviceResolverHandlerInterceptor}[`DeviceResolverHandlerInterceptor`] examines the `User-Agent` header in the incoming request, and based on the header value, determines whether the request is coming from a normal (desktop) browser, a mobile (phone) browser, or a tablet browser. The {DeviceHandlerMethodArgumentResolver}[`DeviceHandlerMethodArgumentResolver`] allows Spring MVC to use the resolved {Device}[`Device`] object in a controller method.
 
 [[initial]]
+== Auto-configuration
+
+By including the Spring Mobile dependency, Spring Boot configures a {DeviceResolverHandlerInterceptor}[`DeviceResolverHandlerInterceptor`] and {DeviceHandlerMethodArgumentResolver}[`DeviceHandlerMethodArgumentResolver`] automatically. {DeviceResolverHandlerInterceptor}[`DeviceResolverHandlerInterceptor`] examines the `User-Agent` header in the incoming request, and based on the header value, determines whether the request is coming from a normal (desktop) browser, a mobile (phone) browser, or a tablet browser. The {DeviceHandlerMethodArgumentResolver}[`DeviceHandlerMethodArgumentResolver`] allows Spring MVC to use the resolved {Device}[`Device`] object in a controller method.
+
+
 == Create a web controller
 
 In Spring, web endpoints are simply Spring MVC controllers. The following Spring MVC controller handles a GET request and returns a String indicating the type of the device:
