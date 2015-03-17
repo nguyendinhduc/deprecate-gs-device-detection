@@ -25,6 +25,7 @@ You'll create a Spring MVC application that detects the type of device that is a
 
 == What you'll need
 
+:java_version: 1.7
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
 
 
